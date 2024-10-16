@@ -101,12 +101,19 @@ body {
 	justify-content: center;
 }
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-	color: #262626;
-	background-color: #BEB45A;
+	color: black;
+	background-color: white;
 	border-radius:0 ;
 }
 .nav-pills .nav-link {
-	color: #000
+	color: #000;
+	border-radius: 0;
+}
+
+.nav-pills .nav-link:hover {
+	color: white;
+	background-color: #996A18;
+	cursor: pointer;
 }
 .item-column {
 	position: relative;
