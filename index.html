@@ -9,14 +9,16 @@
 	<meta charset="UTF-8">
 
 	<!-- Préchargement des scripts essentiels -->
-	<link rel="preload" href="./assets/bootstrap/bootstrap.bundle.min.js" as="script">
 	<link rel="preload" href="https://code.jquery.com/jquery-3.4.1.min.js" as="script" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+	<link rel="preload" href="./assets/bootstrap/bootstrap.bundle.min.js" as="script">
 
 	<!-- Scripts différés -->
-	<script src="./assets/bootstrap/bootstrap.bundle.min.js" defer></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous" defer></script>
+	<script src="./assets/bootstrap/bootstrap.bundle.min.js" defer></script> <!-- Contient Popper et Bootstrap JS -->
 	<script src="./assets/minimaugallery.js" defer></script>
 	<script src="./assets/miniscripts.js" defer></script>
+
+	<!-- Structured Data (JSON-LD) -->
 	<script type="application/ld+json">
 		{
 		  "@context": "http://schema.org",
@@ -31,6 +33,7 @@
 		}
 	</script>
 	
+	<!-- Twitter Meta Tags -->
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="Photographe Nina Carducci">
 	<meta name="twitter:description" content="Devenir photographe était pour moi une évidence. Saisir un moment, une émotion, une situation, un endroit, une lumière et les rendre immortels, voilà ce qui me fait vibrer.">
@@ -46,6 +49,7 @@
 	<meta name="description" content="Nina Carducci, photographe professionnelle vous fait découvrir ses travaux via un aperçu de son portfolio et vous invite à la contacter pour une future collaboration.">
 	<title>Nina Carducci - Photographe</title> 
 </head>
+
 <body>
 <header class="top-header">
 	<h1 class="name">Nina Carducci</h1>
