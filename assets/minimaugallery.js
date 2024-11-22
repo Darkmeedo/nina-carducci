@@ -11,6 +11,12 @@
     const config = { ...defaults, ...options };
     const tagsCollection = [];
 
+    // Vérification de base de l'élément
+    if (!this || this.length === 0) {
+      console.error("Aucun élément de galerie trouvé.");
+      return;
+    }
+
     return this.forEach((galleryElement) => {
       createRowWrapper(galleryElement);
       if (config.lightBox) {
@@ -18,7 +24,7 @@
       }
       addListeners(config);
 
-      Array.from(galleryElement.children).forEach((item, index) => {
+      Array.from(galleryElement.children).forEach((item) => {
         responsiveImageItem(item);
         moveItemInRowWrapper(item);
         wrapItemInColumn(item, config.columns);
@@ -32,7 +38,7 @@
         showItemTags(galleryElement, config.tagsPosition, tagsCollection);
       }
 
-      galleryElement.style.display = "block";
+      galleryElement.style.display = "block"; // On s'assure que la galerie est visible
     });
 
     function createRowWrapper(element) {
@@ -97,8 +103,14 @@
 
     function openLightBox(element, lightboxId) {
       const lightbox = document.getElementById(lightboxId);
+      if (!lightbox) {
+        console.error("La modale n'a pas pu être trouvée.");
+        return;
+      }
+
       const lightboxImage = lightbox.querySelector('.lightboxImage');
       lightboxImage.src = element.src;
+
       const modal = new bootstrap.Modal(lightbox);
       modal.show();
     }
@@ -164,8 +176,13 @@
     }
   };
 
-  // Usage example
-  document.querySelectorAll('.gallery').forEach(galleryElement => {
-    mauGallery.call(galleryElement, { lightboxId: 'myLightbox', navigation: true });
-  });
+  // Fonction de test et d'appel
+  const galleryElements = document.querySelectorAll('.gallery');
+  if (galleryElements.length > 0) {
+    galleryElements.forEach(galleryElement => {
+      mauGallery.call(galleryElement, { lightboxId: 'myLightbox', navigation: true });
+    });
+  } else {
+    console.error("Aucun élément .gallery trouvé.");
+  }
 })();
