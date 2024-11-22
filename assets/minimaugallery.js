@@ -26,3 +26,8 @@ tagsBar.addEventListener("click",(e)=>{if(e.target.classList.contains("nav-link"
 filterByTag(tagElement){const activeTag=this.gallery.querySelector(".active-tag");if(activeTag){activeTag.classList.remove("active","active-tag")}
 tagElement.classList.add("active-tag");const tag=tagElement.dataset.imagesToggle;const items=this.gallery.querySelectorAll(".gallery-item");items.forEach(item=>{const column=item.closest(".item-column");if(tag==="all"||item.dataset.galleryTag===tag){column.style.display="block"}else{column.style.display="none"}})}}
 document.addEventListener("DOMContentLoaded",()=>{new MauGallery("#gallery",{columns:3,lightBox:!0,showTags:!0,tagsPosition:"top"})})
+
+document.addEventListener('DOMContentLoaded', () => {
+    const gallery = document.querySelector('.gallery');
+    gallery.style.display = 'flex'; // Ou le style approprié pour votre galerie
+});
