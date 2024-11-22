@@ -123,23 +123,30 @@ class MauGallery {
         modal.show();
     }
 
-    prevImage() {
-    const currentSrc = this.lightbox.querySelector(".lightboxImage").src;
-    const images = Array.from(this.gallery.querySelectorAll(".gallery-item img"))
-        .map(img => img.src); // Utilisez directement `img.src` sans créer d'URL complète
-    const currentIndex = images.findIndex(src => src === currentSrc);
+   // Fonction pour la navigation vers l'image précédente
+prevImage() {
+    const currentImage = this.lightbox.querySelector(".lightboxImage");
+    const currentSrc = currentImage.src;
+    const images = Array.from(this.gallery.querySelectorAll(".gallery-item img"));
+    const currentIndex = images.findIndex(img => img.src === currentSrc);
+
+    // Trouver l'index de l'image précédente (avec gestion de la boucle)
     const prevIndex = (currentIndex - 1 + images.length) % images.length;
-    this.lightbox.querySelector(".lightboxImage").src = images[prevIndex];
+    currentImage.src = images[prevIndex].src; // Mettre à jour l'image dans la modale
 }
 
+// Fonction pour la navigation vers l'image suivante
 nextImage() {
-    const currentSrc = this.lightbox.querySelector(".lightboxImage").src;
-    const images = Array.from(this.gallery.querySelectorAll(".gallery-item img"))
-        .map(img => img.src); // Utilisez directement `img.src` sans créer d'URL complète
-    const currentIndex = images.findIndex(src => src === currentSrc);
+    const currentImage = this.lightbox.querySelector(".lightboxImage");
+    const currentSrc = currentImage.src;
+    const images = Array.from(this.gallery.querySelectorAll(".gallery-item img"));
+    const currentIndex = images.findIndex(img => img.src === currentSrc);
+
+    // Trouver l'index de l'image suivante (avec gestion de la boucle)
     const nextIndex = (currentIndex + 1) % images.length;
-    this.lightbox.querySelector(".lightboxImage").src = images[nextIndex];
+    currentImage.src = images[nextIndex].src; // Mettre à jour l'image dans la modale
 }
+
 
 
     showItemTags() {
