@@ -124,22 +124,23 @@ class MauGallery {
     }
 
     prevImage() {
-        const currentSrc = new URL(this.lightbox.querySelector(".lightboxImage").src, document.baseURI).href;
-        const images = Array.from(this.gallery.querySelectorAll(".gallery-item img"))
-            .map(img => new URL(img.src, document.baseURI).href);
-        const currentIndex = images.findIndex(src => src === currentSrc);
-        const prevIndex = (currentIndex - 1 + images.length) % images.length;
-        this.lightbox.querySelector(".lightboxImage").src = images[prevIndex];
-    }
+    const currentSrc = this.lightbox.querySelector(".lightboxImage").src;
+    const images = Array.from(this.gallery.querySelectorAll(".gallery-item img"))
+        .map(img => img.src); // Utilisez directement `img.src` sans créer d'URL complète
+    const currentIndex = images.findIndex(src => src === currentSrc);
+    const prevIndex = (currentIndex - 1 + images.length) % images.length;
+    this.lightbox.querySelector(".lightboxImage").src = images[prevIndex];
+}
 
-    nextImage() {
-        const currentSrc = new URL(this.lightbox.querySelector(".lightboxImage").src, document.baseURI).href;
-        const images = Array.from(this.gallery.querySelectorAll(".gallery-item img"))
-            .map(img => new URL(img.src, document.baseURI).href);
-        const currentIndex = images.findIndex(src => src === currentSrc);
-        const nextIndex = (currentIndex + 1) % images.length;
-        this.lightbox.querySelector(".lightboxImage").src = images[nextIndex];
-    }
+nextImage() {
+    const currentSrc = this.lightbox.querySelector(".lightboxImage").src;
+    const images = Array.from(this.gallery.querySelectorAll(".gallery-item img"))
+        .map(img => img.src); // Utilisez directement `img.src` sans créer d'URL complète
+    const currentIndex = images.findIndex(src => src === currentSrc);
+    const nextIndex = (currentIndex + 1) % images.length;
+    this.lightbox.querySelector(".lightboxImage").src = images[nextIndex];
+}
+
 
     showItemTags() {
         const tagsBar = document.createElement("ul");
