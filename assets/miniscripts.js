@@ -1,16 +1,1 @@
-$(document).ready(function(){$('.gallery').mauGallery({columns:{xs:1,sm:2,md:3,lg:3,xl:3},lightBox:!0,lightboxId:'myAwesomeLightbox',showTags:!0,tagsPosition:'top'})})
-
-document.addEventListener("DOMContentLoaded", function() {
-    const carousel = document.querySelector('#carouselExampleIndicators');
-    const carouselImages = carousel.querySelectorAll('.carousel-item img');
-
-    carousel.addEventListener('slide.bs.carousel', function(event) {
-        const nextSlide = event.relatedTarget;
-        const img = nextSlide.querySelector('img');
-        
-        if (img.dataset.src) {
-            img.src = img.dataset.src;
-            img.removeAttribute('data-src');
-        }
-    });
-});
+$(document).ready(function(){$(".gallery").mauGallery({columns:{xs:1,sm:2,md:3,lg:3,xl:3},lightBox:!0,lightboxId:"myAwesomeLightbox",showTags:!0,tagsPosition:"top"})}),document.addEventListener("DOMContentLoaded",function(){let e=document.querySelector("#carouselExampleIndicators");e.querySelectorAll(".carousel-item img"),e.addEventListener("slide.bs.carousel",function(e){let t=e.relatedTarget,r=t.querySelector("img");r.dataset.src&&(r.src=r.dataset.src,r.removeAttribute("data-src"))})});
